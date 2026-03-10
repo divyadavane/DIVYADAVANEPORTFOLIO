@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+}
+
+:root {
+  --background: #030014;
+  --foreground: #f8fafc;
+  --accent: #d946ef; /* Magenta */
+  --accent-secondary: #7c3aed; /* Violet */
+  --accent-gold: #f59e0b; /* Gold */
+  --accent-bronze: #92400e; /* Bronze */
+  --shiny-white: #ffffff;
+  --cosmic-nebula: rgba(124, 58, 237, 0.2);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(124,58,237,0.1)];
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(217, 70, 239, 0.5), 0 0 40px rgba(124, 58, 237, 0.3);
+  }
+
+  .text-glow-white {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.5), 
+                 0 0 60px rgba(217, 70, 239, 0.3);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+  }
+
+  .water-ripple {
+    filter: url(#water-filter);
+  }
+
+  .nebula-glow {
+    box-shadow: 0 0 80px 20px rgba(217, 70, 239, 0.1);
+  }
+}
+
+.font-display {
+  font-family: var(--font-space-grotesk);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes scrollbar-pulse {
+  0%, 100% { background: rgba(124, 58, 237, 0.3); box-shadow: 0 0 5px rgba(124, 58, 237, 0.2); }
+  50% { background: rgba(217, 70, 239, 0.6); box-shadow: 0 0 15px rgba(217, 70, 239, 0.5); }
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.2);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  animation: scrollbar-pulse 2s infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 70, 239, 0.4);
+}
+
+/* Dominant Typography */
+.text-huge {
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes comet-move {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(200vw) translateY(200vh) rotate(45deg); opacity: 0; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+.animate-star {
+  animation: star-twinkle var(--duration, 3s) ease-in-out infinite;
+}
+
+.animate-comet {
+  animation: comet-move 8s linear infinite;
+}
+
+.text-mega-glow {
+  color: #fff;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 1),
+    0 0 20px rgba(255, 255, 255, 1),
+    0 0 40px rgba(255, 255, 255, 0.8),
+    0 0 80px rgba(217, 70, 239, 0.6),
+    0 0 120px rgba(217, 70, 239, 0.4);
+  filter: brightness(2) drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+}
