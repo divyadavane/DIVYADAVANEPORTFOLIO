@@ -12,7 +12,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-import Background from "@/components/Background";
+import CyberneticGridShader from "@/components/ui/cybernetic-grid-shader";
 import Sidebar from "@/components/Sidebar";
 import CometCursor from "@/components/CometCursor";
 
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased selection:bg-white selection:text-black`}>
         <CometCursor />
-        <Background />
+        <CyberneticGridShader />
         <Sidebar />
         <main className="relative z-10">{children}</main>
       </body>
