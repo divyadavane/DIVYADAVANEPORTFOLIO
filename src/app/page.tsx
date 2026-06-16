@@ -7,11 +7,12 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { Internships } from "@/components/Internships";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative scroll-smooth">
       <ScrollProgress />
       
       {/* Global Entry Animation for the entire page */}
@@ -20,48 +21,47 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 2, ease: "easeOut" }}
       >
-        <Hero />
+        <div className="snap-start h-screen w-full">
+          <Hero />
+        </div>
         
-        {/* Wrap sections in motion containers for consistent scroll behavior */}
-        <section className="relative">
+        <div className="snap-start h-screen w-full overflow-y-auto custom-scrollbar">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-150px" }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <About />
           </motion.div>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-150px" }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          >
-            <Skills />
-          </motion.div>
+        <div className="snap-start h-screen w-full overflow-y-auto custom-scrollbar">
+          <Skills />
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-150px" }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          >
-            <Experience />
-          </motion.div>
+        <div className="snap-start w-full">
+          <Internships />
+        </div>
 
+        <div className="snap-start h-screen w-full overflow-y-auto custom-scrollbar">
+          <Experience />
+        </div>
+
+        <div className="snap-start h-screen w-full overflow-y-auto custom-scrollbar">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-150px" }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <Projects />
           </motion.div>
-        </section>
+        </div>
 
-        <Footer />
+        <div className="snap-start w-full">
+          <Footer />
+        </div>
       </motion.div>
     </div>
   );

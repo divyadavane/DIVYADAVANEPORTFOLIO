@@ -80,7 +80,7 @@ export default function Footer() {
         <div className="mt-32 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col gap-2">
             <p className="text-[11px] font-black uppercase tracking-widest text-white/40">
-                © {currentYear} DIVYA DAVANE.
+                © {currentYear} Divya Davane.
             </p>
             <p className="text-[8px] font-bold uppercase tracking-[0.3em] text-white/20">
                 Synthesized in the heart of a Dying Star

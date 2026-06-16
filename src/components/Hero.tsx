@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
+import { GlowCard } from "@/components/ui/spotlight-card";
+import { HyperText } from "@/components/ui/hyper-text";
+import { AnimatedText } from "@/components/ui/animated-shiny-text";
 
 export default function Hero() {
-  const letters = "DIVYA DAVANE".split("");
   const containerRef = useRef(null);
   
   return (
@@ -33,111 +35,99 @@ export default function Hero() {
       </div>
 
       <div className="z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="relative inline-block"
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="font-display mb-8 text-[12px] font-black tracking-[1.2em] text-white/90 uppercase text-glow-white"
-          >
-          Digital Architect • AI Specialist • Data Analyst
-          </motion.p>
+          <div className="relative inline-block">
 
-          <div className="flex flex-col items-center relative">
-            <h1 className="text-huge font-display font-black text-white selection:bg-white selection:text-black leading-none py-10">
-              {letters.map((char, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 40, scale: 0.7, filter: "blur(15px)" }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1,
-                    filter: "blur(0px)",
-                  }}
-                  whileHover={{ 
-                    scale: 1.3, 
-                    color: "#fff",
-                    textShadow: "0 0 80px rgba(255, 255, 255, 1), 0 0 120px rgba(217, 70, 239, 1)",
-                    transition: { duration: 0.1 }
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    delay: i * 0.05,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className="inline-block text-mega-glow brightness-[5] drop-shadow-[0_0_40px_rgba(255,255,255,1)]"
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </h1>
+          <div className="flex flex-col items-center relative w-full mt-4 z-[9999]">
+              <AnimatedText 
+                text="Divya Davane"
+                textClassName="text-[120px] md:text-[180px] font-combat font-normal leading-none pointer-events-none drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] tracking-tighter uppercase"
+                gradientColors="linear-gradient(90deg, #222, #fff, #222)"
+                gradientAnimationDuration={3}
+                className="pt-10 pb-0"
+              />
             
             {/* Extreme Bloom Layers */}
             <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none -z-10 flex items-center justify-center">
-                <div className="h-32 w-[110%] bg-white/20 blur-[100px] rounded-full animate-pulse" />
-                <div className="absolute h-10 w-[100%] bg-white/30 blur-[40px] rounded-full" />
+                <div className="h-64 w-[110%] bg-white/10 blur-[120px] rounded-full animate-pulse" />
+                <div className="absolute h-20 w-[100%] bg-white/20 blur-[60px] rounded-full" />
             </div>
 
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ delay: 2, duration: 2 }}
-              className="mt-6 h-[4px] w-[30rem] md:w-[60rem] bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_60px_rgba(255,255,255,1)]"
+              className="mt-2 h-[4px] w-[30rem] md:w-[60rem] bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_60px_rgba(255,255,255,1)]"
             />
-          </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.8, duration: 1 }}
-          className="mt-24 flex flex-col items-center gap-10"
-        >
-          <div className="max-w-2xl space-y-6">
-             <p className="text-sm font-bold tracking-[0.6em] uppercase leading-relaxed text-white/70 text-center text-glow-white">
-              Cultivating Intelligence in the <span className="text-white brightness-150">Luminous</span> Void
-            </p>
-            <div className="flex justify-center gap-8">
-                {["Next.js", "React", "Framer Motion", "PyTorch"].map(tag => (
-                   <span key={tag} className="text-[10px] font-black tracking-[0.4em] uppercase text-white/40 border-b border-white/10 pb-1">{tag}</span>
-                ))}
+            <div className="mt-4 flex flex-col items-center justify-center">
+              <HyperText 
+                duration={1500}
+                delay={3500}
+                className="text-[40px] md:text-[52px] font-glitch tracking-[0.05em] text-white/90 drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+              >
+                an aspiring data analyst and ML engineer
+              </HyperText>
+              
+              {/* The Line Below Tagline */}
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ delay: 5.5, duration: 1.5, ease: "easeOut" }}
+                className="mt-6 h-[2px] w-[20rem] md:w-[45rem] bg-gradient-to-r from-transparent via-magenta-500 to-transparent shadow-[0_0_30px_rgba(217,70,239,0.5)]"
+              />
+
+              {/* The Professional Manifesto Line */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 6.5, duration: 1.5 }}
+                className="mt-8 text-[12px] md:text-[15px] font-display font-medium text-white/40 uppercase tracking-[0.4em] leading-relaxed max-w-[45rem] text-center"
+              >
+                Designing AI-driven systems, high-performance backends, and seamless user journeys.
+              </motion.p>
             </div>
           </div>
-          
-          <div className="flex flex-wrap justify-center gap-6">
-            <motion.button
-              whileHover={{ 
-                scale: 1.15, 
-                backgroundColor: "rgba(255,255,255,1)", 
-                color: "#000",
-                boxShadow: "0 0 80px rgba(255,255,255,1)"
-              }}
-              className="px-16 py-6 bg-white/5 backdrop-blur-xl rounded-full border border-white/40 text-[12px] font-black uppercase tracking-[0.5em] text-white transition-all duration-700"
-            >
-              Enter The Universe
-            </motion.button>
+        </div>
 
-            <motion.a
-              href="/resume.pdf"
-              download="Divya_Davane_Resume.pdf"
-              whileHover={{ 
-                scale: 1.15, 
-                backgroundColor: "rgba(124,58,237,0.2)", 
-                borderColor: "rgba(217,70,239,0.8)",
-                boxShadow: "0 0 40px rgba(124,58,237,0.4)"
-              }}
-              className="px-12 py-6 bg-white/5 backdrop-blur-xl rounded-full border border-white/20 text-[12px] font-black uppercase tracking-[0.5em] text-white transition-all duration-700 flex items-center gap-3"
-            >
-              Download CV
-            </motion.a>
-          </div>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.8, duration: 1 }}
+            className="mt-12 flex flex-col items-center"
+          >
+            <div className="flex flex-wrap justify-center gap-8">
+              <GlowCard 
+                customSize={true} 
+                borderRadius={60} 
+                className="w-fit h-fit rounded-full border border-white/10"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-14 py-5 text-[18px] md:text-[22px] font-normal tracking-normal text-white/90 bg-transparent font-combat uppercase"
+                >
+                  Enter the Universe
+                </motion.button>
+              </GlowCard>
+
+              <GlowCard 
+                 customSize={true} 
+                 borderRadius={60} 
+                 glowColor="purple"
+                 className="w-fit h-fit rounded-full border border-white/5"
+              >
+                <motion.a
+                  href="/resume.pdf"
+                  download="Divya_Davane_Resume.pdf"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-12 py-5 text-[18px] md:text-[22px] font-normal tracking-normal text-white/50 bg-transparent flex items-center gap-3 transition-colors hover:text-white/80 font-combat uppercase"
+                >
+                  Download CV
+                </motion.a>
+              </GlowCard>
+            </div>
+          </motion.div>
       </div>
 
       {/* Extreme Orbiting Particles */}
