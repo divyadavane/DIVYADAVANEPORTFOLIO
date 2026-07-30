@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // ║  Paste your Web3Forms Access Key below.                                 ║
 // ║  Get your free key at: https://web3forms.com (using divyadavane0@gmail.com) ║
 // ╚══════════════════════════════════════════════════════════════════════════╝
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "6218abc0-5cd2-4081-a56e-d0242bcbee71";
 
 const PROJECT_TYPES = [
   "Web Development",
