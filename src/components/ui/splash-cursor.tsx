@@ -43,23 +43,23 @@ function SplashCursor({
   const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvas: any = canvasRef.current;
     if (!canvas) return;
 
     // Track if the effect is still active for cleanup
     let isActive = true;
 
-    function pointerPrototype() {
-      this.id = -1;
-      this.texcoordX = 0;
-      this.texcoordY = 0;
-      this.prevTexcoordX = 0;
-      this.prevTexcoordY = 0;
-      this.deltaX = 0;
-      this.deltaY = 0;
-      this.down = false;
-      this.moved = false;
-      this.color = [0, 0, 0];
+    class Pointer {
+      id = -1;
+      texcoordX = 0;
+      texcoordY = 0;
+      prevTexcoordX = 0;
+      prevTexcoordY = 0;
+      deltaX = 0;
+      deltaY = 0;
+      down = false;
+      moved = false;
+      color = [0, 0, 0];
     }
 
     let config = {
@@ -82,7 +82,7 @@ function SplashCursor({
       COLOR
     };
 
-    let pointers = [new pointerPrototype()];
+    let pointers: any[] = [new Pointer()];
 
     const { gl, ext } = getWebGLContext(canvas);
     if (!ext.supportLinearFiltering) {
@@ -98,9 +98,10 @@ function SplashCursor({
         antialias: false,
         preserveDrawingBuffer: false
       };
-      let gl = canvas.getContext('webgl2', params);
+      let gl: any = canvas.getContext('webgl2', params);
       const isWebGL2 = !!gl;
-      if (!isWebGL2) gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
+      if (!isWebGL2) gl = canvas.getContext('webgl', params) || (canvas as any).getContext('experimental-webgl', params);
+      if (!gl) return { gl: null, ext: {} as any };
 
       let halfFloat: any;
       let supportLinearFiltering: boolean;
@@ -174,14 +175,14 @@ function SplashCursor({
       fragmentShaderSource: string;
       programs: { [key: number]: WebGLProgram } = {};
       activeProgram: WebGLProgram | null = null;
-      uniforms: any[] = [];
+      uniforms: Record<string, any> = {};
 
       constructor(vertexShader: WebGLShader, fragmentShaderSource: string) {
         this.vertexShader = vertexShader;
         this.fragmentShaderSource = fragmentShaderSource;
         this.programs = [];
         this.activeProgram = null;
-        this.uniforms = [];
+        this.uniforms = {};
       }
       setKeywords(keywords: string[]) {
         let hash = 0;
@@ -225,7 +226,7 @@ function SplashCursor({
     }
 
     function getUniforms(program: WebGLProgram) {
-      let uniforms: any[] = [];
+      let uniforms: Record<string, any> = {};
       let uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
       for (let i = 0; i < uniformCount; i++) {
         let uniformName = gl.getActiveUniform(program, i)!.name;
@@ -234,7 +235,7 @@ function SplashCursor({
       return uniforms;
     }
 
-    function compileShader(type: number, source: string, keywords: string[] | null) {
+    function compileShader(type: number, source: string, keywords?: string[] | null) {
       source = addKeywords(source, keywords);
       const shader = gl.createShader(type);
       gl.shaderSource(shader, source);
@@ -243,7 +244,7 @@ function SplashCursor({
       return shader;
     }
 
-    function addKeywords(source: string, keywords: string[] | null) {
+    function addKeywords(source: string, keywords?: string[] | null) {
       if (!keywords) return source;
       let keywordsString = '';
       keywords.forEach(keyword => {
@@ -727,6 +728,7 @@ function SplashCursor({
     }
 
     function resizeCanvas() {
+      if (!canvas) return false;
       let width = scaleByPixelRatio(canvas.clientWidth);
       let height = scaleByPixelRatio(canvas.clientHeight);
       if (canvas.width !== width || canvas.height !== height) {
@@ -934,7 +936,7 @@ function SplashCursor({
     }
 
     function HSVtoRGB(h: number, s: number, v: number) {
-      let r: number, g: number, b: number, i: number, f: number, p: number, q: number, t: number;
+      let r = 0, g = 0, b = 0, i = 0, f = 0, p = 0, q = 0, t = 0;
       i = Math.floor(h * 6);
       f = h * 6 - i;
       p = v * (1 - s);
