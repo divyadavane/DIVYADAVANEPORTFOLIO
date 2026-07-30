@@ -1,60 +1,56 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { 
-  Calendar, 
-  MapPin, 
-  Trophy, 
+import {
+  Trophy,
   Star,
-  Zap,
-  Target,
   GraduationCap,
   Award,
   Sparkles,
-  Globe,
-  Milestone
+  Code,
+  Crown,
+  Users,
 } from "lucide-react";
 import { useRef } from "react";
-
-const experiences = [
-  {
-    title: "Data Science Intern",
-    company: "Proton Shala",
-    period: "Feb 2024 - Mar 2024",
-    location: "Remote",
-    description: "Spearheaded advanced data modeling and feature engineering initiatives for predictive analytics modules.",
-    highlights: ["Increased model accuracy by 12%", "Automated ETL pipelines"],
-    accent: "purple"
-  },
-  {
-    title: "AI Development Intern",
-    company: "Global Tech Solutions",
-    period: "June 2023 - Aug 2023",
-    location: "Pune, India",
-    description: "Engineered computer vision algorithms for real-time object detection and classification systems.",
-    highlights: ["Reduced latency by 20%", "Deployed scalable inference"],
-    accent: "magenta"
-  },
-];
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import TiltedCard from "@/components/ui/TiltedCard";
 
 const achievements = [
   {
-    title: "Top 1% Global Ranking",
-    description: "Consistently ranked in the top percentile of competitive AI challenges on Kaggle and LeetCode.",
-    icon: Target,
-    color: "text-purple-400"
+    title: "Winner – Oscillations National Technical Research Paper",
+    description: "Won the Oscillations National Technical Research Paper Presentation, India (2026).",
+    icon: Crown,
+    color: "#f59e0b",
+    glowColor: "rgba(245, 158, 11, 0.4)",
+    tag: "WINNER 2026",
+    image: "/images/winner-trophy.png",
   },
   {
-    title: "Open Source Champion",
-    description: "Contributed critical optimizations to several high-profile Python data libraries.",
-    icon: Zap,
-    color: "text-white"
-  },
-  {
-    title: "2nd Place - Oscillations Paper",
-    description: "Achieved runner-up position for research paper on advanced signal processing at a National Level Presentation.",
+    title: "2nd Place – Oscillations National Paper Presentation",
+    description: "NeuroRender: Rendering Thoughts into Images — National Paper Presentation, India (Apr 2025).",
     icon: Award,
-    color: "text-purple-500"
+    color: "#a855f7",
+    glowColor: "rgba(168, 85, 247, 0.4)",
+    tag: "2ND PLACE 2025",
+    image: "/images/neurorender.png",
+  },
+  {
+    title: "Creative Head – VCET National Students Data Corps",
+    description: "Leading creative initiatives for the National Students Data Corps at VCET (Jun 2024 – Present).",
+    icon: Users,
+    color: "#ffffff",
+    glowColor: "rgba(255, 255, 255, 0.25)",
+    tag: "LEADERSHIP",
+    image: "/images/creative-head.png",
+  },
+  {
+    title: "400+ LeetCode Problems Solved",
+    description: "Solved over 400 problems on LeetCode, strengthening DSA and problem-solving skills.",
+    icon: Code,
+    color: "#22c55e",
+    glowColor: "rgba(34, 197, 94, 0.4)",
+    tag: "DSA MASTERY",
+    image: "/images/leetcode.png",
   },
 ];
 
@@ -62,100 +58,179 @@ export default function Experience() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.4], ["0%", "100%"]);
 
   return (
-    <section id="education" ref={containerRef} className="py-32 px-6 relative overflow-hidden">
-      <div className="mx-auto max-w-4xl relative z-10">
-        {/* Only Education & Achievements (Universal Board) */}
+    <section
+      id="education"
+      ref={containerRef}
+      className="py-32 px-6 relative overflow-hidden"
+    >
+      <div className="mx-auto max-w-6xl relative z-10">
         <div className="space-y-24">
-            <div className="relative">
-              <div className="mb-16">
-                <motion.h2
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  className="font-display text-5xl font-black text-white md:text-6xl uppercase text-right"
-                >
-                  SYSTEM <span className="text-mega-glow brightness-125">WINS</span>
-                </motion.h2>
-                <div className="mt-6 h-1 w-32 bg-purple-600 ml-auto shadow-[0_0_15px_purple]" />
-              </div>
-
-              <div className="grid gap-8">
-                {achievements.map((achievement, idx) => (
-                  <motion.div
-                    key={achievement.title}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.2 }}
-                    whileHover={{ scale: 1.05, x: -10 }}
-                    className="glass p-10 rounded-[3rem] flex items-center gap-10 group hover:border-purple-500/50 transition-all duration-700 bg-black/60 backdrop-blur-3xl"
-                  >
-                    <div className={`h-16 w-16 min-w-[4rem] rounded-2xl bg-white/5 flex items-center justify-center ${achievement.color} group-hover:bg-purple-600 group-hover:text-white transition-all duration-500 shadow-xl`}>
-                      <achievement.icon size={30} />
-                    </div>
-                    <div>
-                      <h4 className="font-display text-2xl font-black text-white mb-3 uppercase tracking-tight group-hover:text-purple-400 transition-colors">{achievement.title}</h4>
-                      <p className="text-base text-slate-400 leading-relaxed font-medium max-w-sm">{achievement.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+          <div className="relative">
+            <div className="mb-16">
+              <motion.h2
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="font-combat text-5xl md:text-7xl text-white uppercase tracking-tight text-center text-glow-white"
+              >
+                SYSTEM WINS
+              </motion.h2>
+              <div className="mt-6 h-1 w-32 bg-purple-600 mx-auto shadow-[0_0_15px_purple]" />
             </div>
 
-            {/* Academic Universe Board */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: -2 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              className="relative overflow-hidden rounded-[4rem] bg-gradient-to-br from-purple-600 to-indigo-900 p-16 text-white shadow-[0_0_100px_rgba(124,58,237,0.3)] border border-white/20"
-            >
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 mix-blend-overlay" />
-              <div className="absolute -right-16 -top-16 opacity-30 text-white animate-nebula">
-                <GraduationCap size={400} />
-              </div>
-              
-              <div className="relative z-10">
-                <div className="mb-10 inline-flex items-center gap-3 rounded-2xl bg-black/40 px-6 py-2 text-[12px] font-black uppercase tracking-[0.4em] text-white border border-white/10 backdrop-blur-md">
-                  <Star size={16} fill="currentColor" className="text-amber-400" />
-                  ACADEMIC PEAK
-                  <Sparkles size={14} className="animate-pulse" />
-                </div>
-                
-                <h3 className="font-display text-5xl font-black text-white mb-6 drop-shadow-[0_0_20px_rgba(255,255,255,0.5)] uppercase tracking-tight">
-                  Mumbai University
-                </h3>
-                <p className="mb-14 text-2xl font-bold text-white/90 leading-tight">
-                  Vidyavardhinis College of <br /> Engineering & Technology
-                </p>
-                
-                <div className="flex items-end justify-between">
-                  <div className="space-y-4">
-                    <p className="text-[12px] font-black uppercase tracking-[0.6em] text-white/60">Final Meta Score</p>
-                    <div className="flex items-baseline gap-4">
-                        <span className="text-7xl font-black text-white drop-shadow-2xl">9.1</span>
-                        <span className="text-2xl font-black text-white/40 uppercase tracking-widest">CGPA</span>
-                    </div>
-                  </div>
-                  <motion.div 
-                     animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                     className="h-28 w-28 rounded-full bg-white text-black flex items-center justify-center shadow-[0_0_50px_white] relative"
+            {/* Achievement TiltedCards in a 2x2 Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+              {achievements.map((achievement, idx) => {
+                const Icon = achievement.icon;
+                return (
+                  <motion.div
+                    key={achievement.title}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: idx * 0.15,
+                      duration: 0.7,
+                      ease: "easeOut",
+                    }}
+                    className="flex flex-col items-center"
                   >
-                    <Trophy size={48} />
-                    <Star size={12} className="absolute top-2 right-2 animate-ping" />
+                    <TiltedCard
+                      imageSrc={achievement.image}
+                      altText={achievement.title}
+                      captionText={achievement.title}
+                      containerHeight="360px"
+                      containerWidth="100%"
+                      imageHeight="340px"
+                      imageWidth="100%"
+                      rotateAmplitude={12}
+                      scaleOnHover={1.08}
+                      showMobileWarning={false}
+                      showTooltip={true}
+                      displayOverlayContent={true}
+                      overlayContent={
+                        <div className="flex flex-col justify-end h-full w-full p-5 rounded-[15px] bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                          {/* Tag */}
+                          <span
+                            className="mb-2 self-start inline-block rounded-full px-3 py-0.5 text-[9px] font-bold tracking-[0.25em] uppercase backdrop-blur-md"
+                            style={{
+                              background: `${achievement.glowColor}`,
+                              color: achievement.color,
+                              border: `1px solid ${achievement.color}40`,
+                            }}
+                          >
+                            {achievement.tag}
+                          </span>
+
+                          {/* Title */}
+                          <h4
+                            className="text-sm md:text-base text-white leading-snug mb-1.5 font-bold"
+                            style={{ fontFamily: "var(--font-audiowide)" }}
+                          >
+                            {achievement.title}
+                          </h4>
+
+                          {/* Description */}
+                          <p className="text-[11px] text-slate-300/80 leading-relaxed">
+                            {achievement.description}
+                          </p>
+                        </div>
+                      }
+                    />
                   </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Academic Universe Board with Floating Animation & BorderGlow */}
+          <motion.div
+            animate={{ y: [-12, 12, -12] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="w-full max-w-4xl mx-auto"
+          >
+            <SpotlightCard
+              spotlightColor="rgba(192, 132, 252, 0.25)"
+              className="w-full rounded-[40px] border border-white/10 shadow-[0_0_50px_rgba(124,58,237,0.15)] bg-gradient-to-br from-white/[0.05] via-transparent to-purple-500/[0.05] backdrop-blur-md"
+            >
+              <div className="relative overflow-hidden rounded-[40px] p-10 md:p-14 text-white">
+                {/* Background Watermark Graduation Cap */}
+                <div className="absolute -right-10 -top-10 opacity-15 text-white pointer-events-none">
+                  <GraduationCap size={320} strokeWidth={1.2} />
+                </div>
+
+                <div className="relative z-10">
+                  {/* Academic Peak Pill Tag */}
+                  <div className="mb-8 inline-flex items-center gap-2.5 rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.2em] text-white border border-white/15 backdrop-blur-md">
+                    <Star
+                      size={14}
+                      className="text-amber-400 fill-amber-400"
+                    />
+                    <span>ACADEMIC PEAK</span>
+                    <Sparkles
+                      size={13}
+                      className="text-purple-300 animate-pulse"
+                    />
+                  </div>
+
+                  {/* College Titles */}
+                  <h3 
+                    className="text-3xl md:text-5xl font-black text-white mb-3 uppercase tracking-tight drop-shadow-md"
+                    style={{ fontFamily: "var(--font-michroma)" }}
+                  >
+                    MUMBAI UNIVERSITY
+                  </h3>
+                  <p className="mb-12 text-base md:text-xl font-medium text-slate-300 leading-snug max-w-lg">
+                    Vidyavardhinis College of Engineering & Technology
+                  </p>
+
+                  {/* Meta Score & Glowing Trophy Badge */}
+                  <div className="flex items-end justify-between pt-4">
+                    <div>
+                      <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-2">
+                        FINAL META SCORE
+                      </p>
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-5xl md:text-6xl font-black text-white drop-shadow-lg">
+                          9.1
+                        </span>
+                        <span className="text-lg md:text-xl font-bold text-slate-500 uppercase tracking-widest">
+                          CGPA
+                        </span>
+                      </div>
+                    </div>
+
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.08, 1],
+                        rotate: [0, 5, -5, 0],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-white text-black flex items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.95)] relative shrink-0"
+                    >
+                      <Trophy size={36} className="text-black" />
+                      <Star
+                        size={10}
+                        className="absolute bottom-3 right-3 text-amber-500 fill-amber-500 animate-ping"
+                      />
+                    </motion.div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
+            </SpotlightCard>
+          </motion.div>
         </div>
+      </div>
     </section>
   );
 }

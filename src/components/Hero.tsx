@@ -65,7 +65,7 @@ export default function Hero() {
                 delay={3500}
                 className="text-[40px] md:text-[52px] font-glitch tracking-[0.05em] text-white/90 drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
               >
-                an aspiring data analyst and ML engineer
+                An Aspiring Software Engineer and Data Analyst
               </HyperText>
               
               {/* The Line Below Tagline */}

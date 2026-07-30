@@ -37,7 +37,7 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className="h-[60rem] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20"
+      className="min-h-screen flex items-center justify-center relative p-2 md:p-8"
       ref={containerRef}
     >
       <div
@@ -84,11 +84,11 @@ export const Card = ({
         rotateX: rotate,
         scale,
         boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
+          "inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 24px 32px rgba(255, 255, 255, 0.05), 0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003, 0 0 100px rgba(217,70,239,0.15)",
       }}
-      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
+      className="w-full -mt-12 mx-auto h-auto p-4 md:p-8 bg-gradient-to-br from-white/10 via-black/20 to-[#050510]/80 backdrop-blur-[40px] border-t border-l border-white/20 border-b border-r border-white/5 rounded-[3rem]"
     >
-      <div className=" h-full w-full  overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4 ">
+      <div className="h-full w-full overflow-hidden rounded-[2.5rem] bg-transparent">
         {children}
       </div>
     </motion.div>

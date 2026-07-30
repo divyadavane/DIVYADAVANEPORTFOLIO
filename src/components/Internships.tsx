@@ -8,7 +8,7 @@ import {
   Brain,
   Cpu,
 } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const internships = [
   {
@@ -27,6 +27,22 @@ const internships = [
     ],
     color: "#0a0a14",
     rotation: "rotate-2",
+  },
+  {
+    id: "pratinik",
+    title: "Machine Learning Intern",
+    company: "Pratinik Infotech",
+    location: "Work From Home",
+    date: "2025",
+    icon: Brain,
+    image: "/images/pratinik-ml.png",
+    description: [
+      "Developed and fine-tuned Machine Learning models for predictive analysis and pattern recognition using Python and PyTorch.",
+      "Engineered automated data preprocessing pipelines, feature selection methods, and model evaluation benchmarks.",
+      "Collaborated remotely with senior tech leads to integrate ML inference endpoints into scalable applications.",
+    ],
+    color: "#0f0f1b",
+    rotation: "rotate-1",
   },
   {
     id: "ai-virtual",
@@ -72,7 +88,7 @@ export const Internships = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="mb-4 px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold tracking-[0.2em] uppercase backdrop-blur-sm"
+            className="mb-4 px-4 py-1 rounded-full border border-[#123d73]/60 bg-[#061a33]/70 text-[#9cc7ff] text-xs font-bold tracking-[0.2em] uppercase backdrop-blur-sm"
           >
             Professional Journey
           </motion.div>
@@ -83,12 +99,12 @@ export const Internships = () => {
           >
             Internships
           </motion.h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+          <div className="w-24 h-1 bg-[#001f3f] rounded-full shadow-[0_0_24px_rgba(0,31,63,0.9)]" />
         </div>
 
         <div className="w-full relative mt-20">
-          {/* Single Box for All Internships */}
-          <div className="relative rounded-3xl border border-purple-500/30 bg-transparent backdrop-blur-3xl shadow-2xl overflow-hidden animated-border-glow">
+          {/* Single Box with Original Blue Border & Navy Glow for All Internships */}
+          <div className="relative rounded-3xl border border-[#123d73]/70 bg-transparent backdrop-blur-3xl shadow-2xl overflow-hidden internship-navy-glow">
             <div className="p-8 md:p-12">
               <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
                 {internships.map((item, i) => {
@@ -101,18 +117,28 @@ export const Internships = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: i * 0.15 }}
                     >
-                      <article className="relative overflow-hidden rounded-2xl border border-purple-500/20 bg-slate-900/40 backdrop-blur-xl hover:border-purple-500/40 transition-all duration-300">
-                        <div className="p-6">
+                      <article className="relative overflow-hidden rounded-2xl transition-all duration-300 group">
+                        <div className="absolute z-[-1] overflow-hidden h-full w-full rounded-2xl blur-[2px] 
+                                        before:absolute before:content-[''] before:z-[-2] before:w-[600px] before:h-[600px] before:bg-no-repeat before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rotate-60
+                                        before:bg-[conic-gradient(#000,#402fb5_5%,#000_38%,#000_50%,#cf30aa_60%,#000_87%)] before:transition-all before:duration-2000
+                                        group-hover:before:rotate-[-120deg] before:animate-[spin_4s_linear_infinite]">
+                        </div>
+                        <div className="absolute z-[-1] overflow-hidden h-full w-full rounded-2xl blur-[1px] 
+                                        before:absolute before:content-[''] before:z-[-2] before:w-[600px] before:h-[600px] before:bg-no-repeat before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rotate-[82deg]
+                                        before:bg-[conic-gradient(rgba(0,0,0,0),#18116a,rgba(0,0,0,0)_10%,rgba(0,0,0,0)_50%,#6e1b60,rgba(0,0,0,0)_60%)] before:transition-all before:duration-2000
+                                        group-hover:before:rotate-[-98deg] before:animate-[spin_3s_linear_infinite_reverse]">
+                        </div>
+                        <div className="relative bg-[#020b18]/95 rounded-2xl p-6">
                           {/* Header */}
                           <div className="flex items-start gap-4 mb-4">
-                            <div className="p-3 rounded-xl bg-purple-500/20 border border-purple-500/30 shrink-0">
-                              <Icon className="w-6 h-6 text-purple-400" />
+                            <div className="p-3 rounded-xl bg-[#0b2f5b]/70 border border-[#1d5a9f]/60 shrink-0">
+                              <Icon className="w-6 h-6 text-[#9cc7ff]" />
                             </div>
                             <div className="flex-1">
                               <h3 className="font-display text-lg md:text-xl font-black text-white uppercase tracking-tight mb-1">
                                 {item.title}
                               </h3>
-                              <p className="text-purple-400 font-bold text-xs uppercase tracking-[0.2em]">
+                              <p className="text-[#9cc7ff] font-bold text-xs uppercase tracking-[0.2em]">
                                 {item.company}
                               </p>
                             </div>
@@ -125,7 +151,7 @@ export const Internships = () => {
                               <span className="text-[10px] font-bold uppercase tracking-widest text-white/70">{item.date}</span>
                             </div>
                             <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
-                              <MapPin className="w-3.5 h-3.5 text-purple-400" />
+                              <MapPin className="w-3.5 h-3.5 text-[#9cc7ff]" />
                               <span className="text-[10px] font-bold uppercase tracking-widest text-white/70">{item.location}</span>
                             </div>
                           </div>
@@ -151,7 +177,7 @@ export const Internships = () => {
                                   key={idx}
                                   className="flex items-start gap-2"
                                 >
-                                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-purple-500 shrink-0" />
+                                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-[#1d5a9f] shrink-0" />
                                   <span className="text-slate-200 font-medium tracking-tight text-xs leading-relaxed">{desc}</span>
                                 </li>
                               ))}
@@ -170,3 +196,5 @@ export const Internships = () => {
     </section>
   );
 };
+
+

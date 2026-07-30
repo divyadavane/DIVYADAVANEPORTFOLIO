@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Outer Dark Background Container with Dark Magenta Rim -->
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="#0a0512" stroke="#8b1e5a" stroke-width="4"/>
+  <rect x="5" y="5" width="54" height="54" rx="7" fill="#08030e" stroke="#5a0f3a" stroke-width="2"/>
+
+  <!-- Pixelated / Blocky 'D' in Hot Neon Pink -->
+  <!-- Main D outline block -->
+  <path d="
+    M 18 14 
+    H 38 
+    C 44 14, 48 18, 48 24 
+    V 40 
+    C 48 46, 44 50, 38 50 
+    H 18 
+    Z
+  " fill="#ff1493"/>
+  
+  <!-- Inner Cutout of D -->
+  <path d="
+    M 26 22 
+    H 34 
+    C 37 22, 39 24, 39 27 
+    V 37 
+    C 39 40, 37 42, 34 42 
+    H 26 
+    Z
+  " fill="#08030e"/>
+</svg>

@@ -14,7 +14,7 @@ import {
   useTransform,
   useSpring
 } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 // shared mouse position
 const MouseContext = createContext({ x: 0, y: 0 });
@@ -86,7 +86,6 @@ export function MagneticDock({ className = "" }: { className?: string }) {
       >
         <DockIcon href="https://github.com/divyadavane" icon={<Github size={20} />} />
         <DockIcon href="https://linkedin.com/in/divyadavane" icon={<Linkedin size={20} />} />
-        <DockIcon href="https://twitter.com/divyadavane" icon={<Twitter size={20} />} />
         <DockIcon href="mailto:contact@divyadavane.com" icon={<Mail size={20} />} />
       </div>
     </MouseContext.Provider>

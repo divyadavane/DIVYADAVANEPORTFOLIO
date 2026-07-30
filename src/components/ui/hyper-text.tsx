@@ -168,6 +168,7 @@ export function HyperText({
       ref={elementRef}
       className={cn("overflow-hidden py-2 text-4xl font-bold", className)}
       onMouseEnter={handleAnimationTrigger}
+      style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
       {...props}
     >
       <AnimatePresence>
@@ -175,6 +176,7 @@ export function HyperText({
           <motion.span
             key={index}
             className={cn(letter === " " ? "w-3" : "")}
+            style={{ display: "inline-block", whiteSpace: "pre" }}
           >
             {letter}
           </motion.span>

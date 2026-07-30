@@ -90,6 +90,10 @@ const navApps = [
 
 export default function Sidebar() {
   const handleAppClick = (appId: string) => {
+    if (appId === "resume") {
+      window.open("/resume.pdf", "_blank");
+      return;
+    }
     const app = navApps.find(a => a.id === appId);
     if (app) {
       window.location.hash = app.href;
