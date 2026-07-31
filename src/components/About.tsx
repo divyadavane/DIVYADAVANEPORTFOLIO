@@ -140,6 +140,7 @@ export default function About() {
 
                    <motion.a
                       href="/resume.pdf"
+                      download="Divya_Davane_Resume.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
@@ -148,7 +149,7 @@ export default function About() {
                    >
                       <div className="absolute inset-x-0 bottom-0 h-1 bg-amber-500 transition-transform origin-left scale-x-0 group-hover:scale-x-100 duration-500" />
                       <FileUser size={18} className="group-hover:rotate-12 transition-transform" />
-                      View Resume
+                      Download Resume
                    </motion.a>
                 </div>
               </div>
