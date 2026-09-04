@@ -35,6 +35,16 @@ const projects = [
     color: "from-emerald-500/20 to-cyan-500/20",
     accent: "text-emerald-400"
   },
+  {
+    title: "Cuely",
+    tagline: "DIGITAL QUEUE MANAGEMENT OS",
+    description: "Transforms physical wait times into seamless digital experiences with live virtual tokens, real-time alerts, and predictive wait estimation.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    tags: ["Next.js", "Queue OS", "Real-Time"],
+    link: "https://cuely-digital-queue-management-app.vercel.app/",
+    color: "from-blue-500/20 to-cyan-500/20",
+    accent: "text-cyan-400"
+  },
 ];
 
 export default function Projects() {
@@ -71,7 +81,7 @@ export default function Projects() {
               background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4) 15%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.4) 85%, transparent)"
             }}
           />
-          <div className="grid gap-6 md:gap-8 lg:gap-10 md:grid-cols-2 lg:grid-cols-3" style={{ perspective: "1200px" }}>
+          <div className="grid gap-6 md:gap-8 lg:gap-10 md:grid-cols-2" style={{ perspective: "1200px" }}>
             {projects.map((project, idx) => (
 
               <motion.div
@@ -87,7 +97,7 @@ export default function Projects() {
                 whileHover={{
                   y: -18,
                   rotateX: 4,
-                  rotateY: idx === 0 ? 4 : idx === 2 ? -4 : 0,
+                  rotateY: idx % 2 === 0 ? 3 : -3,
                   scale: 1.03,
                   transition: { duration: 0.4, ease: "easeOut" }
                 }}

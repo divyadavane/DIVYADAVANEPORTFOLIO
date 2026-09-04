@@ -73,6 +73,12 @@ I am a **Senior AI Developer & Full-Stack Engineer** passionate about building h
 - **Tech Stack**: Next.js, AI/NLP, Sustainability Tracking, Analytics
 - **Live Demo**: [aperio26.vercel.app](https://aperio26.vercel.app/)
 
+### 4. 🎫 [Cuely](https://cuely-digital-queue-management-app.vercel.app/)
+> **Digital Queue Management OS**
+- **Overview**: Smart queue management platform eliminating physical lines with virtual tokens, live position tracking, and predictive wait times.
+- **Tech Stack**: Next.js, Real-time Queue OS, SMS Notifications, Analytics
+- **Live Demo**: [cuely-digital-queue-management-app.vercel.app](https://cuely-digital-queue-management-app.vercel.app/)
+
 ---
 
 ## 🏢 Work & Internship Experience
