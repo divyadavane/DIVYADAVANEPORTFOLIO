@@ -6,7 +6,7 @@ import {
   CheckCircle2,
   BarChart3,
   Brain,
-  Cpu,
+  Code2,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -61,17 +61,17 @@ const internships = [
     rotation: "-rotate-2",
   },
   {
-    id: "vcet",
-    title: "Data Science & Deep Learning Intern",
-    company: "Fellowship, VCET",
-    location: "Mumbai, India",
-    date: "Jun 2023 – Jul 2023",
-    icon: Cpu,
+    id: "labmentix",
+    title: "Software Engineer Intern",
+    company: "Labmentix Private Limited",
+    location: "Remote",
+    date: "Feb 2026 – Apr 2026",
+    icon: Code2,
     image:
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2865&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2874&auto=format&fit=crop",
     description: [
-      "Performed EDA with Pandas, Matplotlib, Seaborn; developed CNN and RNN/LSTM models using TensorFlow/PyTorch.",
-      "Applied transfer learning (VGG, ResNet, BERT) on limited datasets to improve model accuracy.",
+      "Developed and maintained software applications by implementing scalable features, debugging code, and optimizing performance.",
+      "Collaborated in Agile teams using Git and modern development practices to deliver high-quality solutions.",
     ],
     color: "#141424",
     rotation: "rotate-0",
