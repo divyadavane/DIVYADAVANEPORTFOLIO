@@ -60,7 +60,7 @@ export default function About() {
 
                 <div className="mt-12 space-y-2">
                   <h3 className="font-display text-2xl font-black text-white uppercase tracking-tight">Divya Davane</h3>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">Neural Architect | Engineering Student</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">Software Engineer | Data Analyst | Engineering Student</p>
                 </div>
 
                 <div className="mt-8 flex flex-wrap justify-center gap-2">
